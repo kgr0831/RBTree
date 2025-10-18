@@ -1,0 +1,10 @@
+{
+	"folders": [],
+	"settings": {
+		"files.associations": {
+			"type_traits": "c",
+			"limits": "c",
+			"stdio.h": "c"
+		}
+	}
+}
