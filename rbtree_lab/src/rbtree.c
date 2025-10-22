@@ -2,20 +2,36 @@
 
 #include <stdlib.h>
 
-rbtree *new_rbtree(void) {
+rbtree *new_rbtree(void) 
+{
   rbtree *p = (rbtree *)calloc(1, sizeof(rbtree));
-  // TODO: initialize struct if needed
+  p -> root = NULL;
+  p -> nil = NULL;
   return p;
 }
 
-void delete_rbtree(rbtree *t) {
-  // TODO: reclaim the tree nodes's memory
+void delete_rbtree(rbtree *t) 
+{
+  t = NULL;
   free(t);
 }
 
-node_t *rbtree_insert(rbtree *t, const key_t key) {
-  // TODO: implement insert
+node_t *rbtree_insert(rbtree *t, const key_t key) 
+{
+  if(t->root == NULL)
+  {
+    InsertCase_1(t, key);
+  }
   return t->root;
+}
+
+void InsertCase_1(rbtree *t, const key_t key)
+{
+  t -> root -> color = RBTREE_BLACK;
+  t -> root -> key = key;
+  t -> root -> left = t->nil;
+  t -> root -> right = t->nil;
+  t -> root -> parent = NULL;
 }
 
 node_t *rbtree_find(const rbtree *t, const key_t key) {
